@@ -8,19 +8,20 @@ The source dataset, tsdf\_br2021\_feb2023.xlsx, contains a list of Resource Cons
 
 **Pre-Hadoop Processing:**
 
-- Import tsdf\_br2021\_feb2023.xlsx to table in geodatabase called TSDF\_work.gdb -- TSDF\_BR2021\_0323\_all
-- Determine number TSDF and BR records. 666 "Operating TSDF" records, out of 17,025 LQG BR reporters.
-- Also check for duplicate facilities. No duplicates were found.
-- Geocode TSDF\_BR2021\_0223\_all to create TSDF\_BR2021\_0223\_forEJ. Check for points outside US and PR. Drop records outside US states and PR leaving total of 17,013. Dropped 12 from GU, MP, VI.
+- Import tsdf\_br2021\_feb2023.xlsx to table in geodatabase called TSDF\_work.gdb -- TSDF\_BR2021\_0323\_all.
+- Determine number TSDF and BR records.
+- Also check for any duplicate facilities.
+- Build a dataset, TSDF\_BR2021\_0223\_forEJ that only contains US States, DC and PR.
 - Create output table (TSDF\_BR2019\_0223\_forHadoop.csv). The export table structure is (EPA\_ID, LATITUDE, LONGITUDE, CWEIGHT); note that CWEIGHT = 1 for all records.
 
 **AWS Hadoop Processing:**
 
 - Start an AWS EMR cluster.
+- Rather than do 52 separate state runs, some smaller states are combined to produce 32 state groupings.
 - Run Step 1 for each of 32 state groups to generate weighted distances for facility-block pairs. See **TSDF\_US01\_proximity\_Step\_1.txt** for Pig script example.
 - Run Step 2 for each of 32 state groups to generate block group summary for each subgroup. See **TSDF\_US01\_proximity\_Step\_2.txt** for Pig script example.
-- Use Athena to create BG-level results tables and export BG\_Scores\_01.csv, etc. to OutputfromHadoop folder.
-- Repeat all steps for each subgroup.
+- Use Athena to create BG-level results tables and export, for example, BG\_Scores\_01.csv to OutputfromHadoop folder.
+- Repeat all steps for each state group.
 
 **Post-Hadoop Processing:**
 
