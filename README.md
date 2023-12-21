@@ -26,7 +26,7 @@ The source dataset, tsdf\_br2021\_feb2023.xlsx, contains a list of Resource Cons
 **Post-Hadoop Processing:**
 
 - Combine all text files in OutputfromHadoop folder. Copy \*\_bgscores.csv: tsdf\_bgscores\_us.csv
-- Prep with text editor (Capitalized first header row and remove all other header rows).
+- Open US_bg_scores.csv in a text editor to capitalize the header and remove all other header rows. 
 - Convert tsdf\_bgscores.csv to xlsx; make sure BLKGRP is text.
 - Port tsdf\_bgscores.xlsx file into geodatabase table (TSDF\_Work.gdb/TSDF\_BG\_Scores\_US)
 - Rename columns to STCNTRBG and BG\_SCORE.
