@@ -11,7 +11,7 @@ The source dataset, tsdf\_br2021\_feb2023.xlsx, contains a list of Resource Cons
 - Import tsdf\_br2021\_feb2023.xlsx to table in geodatabase called TSDF\_work.gdb -- TSDF\_BR2021\_0323\_all.
 - Determine number TSDF and BR records.
 - Also check for any duplicate facilities.
-- Build a dataset, TSDF\_BR2021\_0223\_forEJ that only contains US States, DC and PR.
+- Build a dataset, TSDF\_BR2021\_0223\_forEJ that only contains 50 US States, DC and PR.
 - Create output table (TSDF\_BR2019\_0223\_forHadoop.csv). The export table structure is (EPA\_ID, LATITUDE, LONGITUDE, CWEIGHT); note that CWEIGHT = 1 for all records.
 
 **AWS Hadoop Processing:**
