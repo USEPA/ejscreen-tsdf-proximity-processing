@@ -1,3 +1,5 @@
+DEPRECATED - This repository has been archived and is no longer maintained. The code is provided for historical reference and may contain unpatched or unknown vulnerabilities. It should not be used in production systems.
+
 # **Generating EJScreen TSDF Facility Proximity**
 
 EJScreen uses Apache Hadoop pig scripts to generate Treatment, Storage, and Disposal Facilities (TSDF) facility proximity. The Pig scripts were developed using Esri's [GIS Toolkit for Hadoop](https://esri.github.io/gis-tools-for-hadoop/) toolkit. It was run in an AWS EMR cluster environment. The source data came from EPA's Office of Enforcement and Compliance Assurance (OECA). The proximity process involves Pre-Hadoop processing, running Hadoop Pig scripts, and Post-Hadoop processing. The end results are Census block-group based proximity scores.
